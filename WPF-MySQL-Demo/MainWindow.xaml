@@ -5,8 +5,166 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_MySQL_Demo"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow"
+        Height="450"
+        Width="800"
+        MinHeight="360"
+        MinWidth="600"
+        MaxHeight="600"
+        MaxWidth="800"
+        >
+
+    <DockPanel>
+        <Menu DockPanel.Dock="Top"
+              HorizontalAlignment="Left"
+              VerticalAlignment="Top"
+              Width="793">
+            <MenuItem x:Name="FileMenu"
+                        Header="_File"/>
+            <MenuItem x:Name="HelpMenu"
+                      Header="_Help"/>
+        </Menu>
+
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBar.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="4*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="36" />
+                            <ColumnDefinition Width="36" />
+                            <ColumnDefinition Width="36" />
+                            <ColumnDefinition Width="20" />
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ItemsPanelTemplate>
+            </StatusBar.ItemsPanel>
+
+            <StatusBarItem>
+                <TextBlock x:Name="MessageTextBlock">Loading...</TextBlock>
+            </StatusBarItem>
+
+            <Separator Grid.Column="1"
+                       Margin="5"
+                       Width="1"
+                       Foreground="Gray"/>
+            
+            <StatusBarItem Grid.Column="2">
+                <TextBlock>Set</TextBlock>
+            </StatusBarItem>
+
+            <Separator Grid.Column="3"
+                       Margin="5"
+                       Width="1"
+                       Foreground="DimGray"/>
+
+            <StatusBarItem Grid.Column="4"
+                       x:Name="NumLockStatus"
+                       Foreground="Gray"
+                       HorizontalAlignment="Center">
+                <TextBlock>NUM</TextBlock>
+            </StatusBarItem>
+
+            <StatusBarItem Grid.Column="5"
+                           x:Name="CapsLockStatus"
+                           Foreground="Gray"
+                           HorizontalContentAlignment="Center">
+                <TextBlock>CAPS</TextBlock>
+                
+            </StatusBarItem>
+
+            <StatusBarItem Grid.Column="6"
+                           x:Name="ScrollLockStatus"
+                           Foreground="Gray"
+                           HorizontalContentAlignment="Center">
+                <TextBlock>SCRL</TextBlock>
+
+            </StatusBarItem>
+
+            <StatusBarItem Grid.Column="7">
+                <Ellipse Width="14"
+                         Height="14"
+                         Fill="Green">
+                    
+                </Ellipse>
+            </StatusBarItem>
+
+
+
+
+        </StatusBar>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40*"
+                               MinHeight="40"/>
+                <RowDefinition Height="250*"
+                               MinHeight="250"/>
+                <RowDefinition Height="40*"
+                               MinHeight="40"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock x:Name="MessageTextBox"
+                       Grid.Row="2"
+                       Margin="10"
+                       Background="LightGray"/>
+
+            <DataGrid x:Name="LocationDataGrid"
+                      HorizontalAlignment="Center"
+                      Grid.Row="1"
+                      Height="Auto"
+                      VerticalAlignment="Top"
+                      MinWidth="580"
+                      ItemsPanel="{Binding}"
+                      AlternatingRowBackground="#fff0f0f0"
+                      BorderThickness="1"
+                      BorderBrush="DarkGray"
+                      AutoGenerateColumns="False"
+                      HorizontalGridLinesBrush="Gray"
+                      VerticalGridLinesBrush="WhiteSmoke"
+                      >
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding id}"
+                                        Width="72"
+                                        Header="Row #"
+                                        Foreground="DarkGray"
+                                        IsReadOnly="True"/>
+
+                    <DataGridTextColumn Binding="{Binding location_name}"
+                                        Width="*"
+                                        Header="Location"/>
+
+                </DataGrid.Columns>
+                
+            </DataGrid>
+
+            <Label Content="Filter:"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="top"
+                   Margin="10,10,0,0"/>
+
+            <TextBox
+                x:Name="FilterTextBox"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                TextWrapping="Wrap"
+                Text=""
+                Margin="54,13,0,0"
+                Height="23"
+                Width="120"
+                TextChanged="FilterTextBox_TextChanged"
+                />
+
+        </Grid>
         
-    </Grid>
+    </DockPanel>
+    
+
 </Window>
