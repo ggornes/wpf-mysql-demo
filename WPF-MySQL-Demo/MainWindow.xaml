@@ -121,7 +121,7 @@
                       Height="Auto"
                       VerticalAlignment="Top"
                       MinWidth="580"
-                      ItemsPanel="{Binding}"
+                      ItemsSource="{Binding }"
                       AlternatingRowBackground="#fff0f0f0"
                       BorderThickness="1"
                       BorderBrush="DarkGray"
