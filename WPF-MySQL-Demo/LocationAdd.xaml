@@ -1,0 +1,48 @@
+﻿<Window x:Class="WPF_MySQL_Demo.LocationAdd"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_MySQL_Demo"
+        mc:Ignorable="d"
+        Title="Add Location" Height="200" Width="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="250"/>
+        </Grid.ColumnDefinitions>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="Full Name of Location" VerticalAlignment="Top" Width="220" x:Name="NameTextbox" Grid.Row="0" Grid.Column="1"/>
+        <TextBlock
+            x:Name="LocationErrorTextBlock" Grid.Column="1" Grid.Row="0"  HorizontalAlignment="Left" Margin="10,41,0,0" Text="Oops"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="2 Letter Code" VerticalAlignment="Top" Width="220" x:Name="CodeTextbox" Grid.Row="1" Grid.Column="1"/>
+        <TextBlock
+            x:Name="CodeErrorTextBlock" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Margin="10,41,0,0" Text="Oops"/>
+        <Label x:Name="CodeLabel" Content="Location Code:" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" VerticalAlignment="Top" Width="110" Grid.Row="1" Grid.Column="0"/>
+        <Label x:Name="NameLabel" Content="Full Name:" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" VerticalAlignment="Top" Width="110" Grid.Row="0" Grid.Column="0"/>
+        <Button x:Name="ButtonAdd"
+                Content="Save"
+                Width="75"
+                Margin="10,10,0,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="top"
+                Grid.Row="2"
+                Grid.Column="1"
+                Click="SaveButton_Click"/>
+        <Button x:Name="ButtonCancel"
+                Content="Cancel"
+                Width="75"
+                Margin="10,10,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="top"
+                Grid.Row="2"
+                Grid.Column="1"
+                Click="CancelButton_Click"/>
+
+    </Grid>
+</Window>
